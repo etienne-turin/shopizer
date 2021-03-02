@@ -12,7 +12,7 @@ orbs:
 executors:
   shopizer-ci:
     docker:
-      - image: etienneturin/shopizeretest:latest
+      - image: etienneturin/shopizertest:latest
         auth:
           username: etienneturin
           password: fefcf6bf-b1be-4e9c-906b-2d709a1bc174
