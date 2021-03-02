@@ -29,8 +29,7 @@ jobs:
       - run: echo "shopizer build and test (1)"
       - run:
           name: Run shell script
-          command: |
-            set -x
+          command:
             - bash /home/shopizer/tools/shopizer.sh tests
       - persist_to_workspace:
           root: .
