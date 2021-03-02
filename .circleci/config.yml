@@ -55,7 +55,7 @@ jobs:
        - run: |
            ls -al
        - run: |
-           docker login -u shopizerecomm -p $DOCKERHUB_PASSWORD
+           docker login -u etienneturin -p fefcf6bf-b1be-4e9c-906b-2d709a1bc174
        - run: |
            (cd sm-shop && docker build . -t shopizerecomm/shopizer:latest)
        - run: |
