@@ -84,7 +84,7 @@
 		<coverage.branches>.37</coverage.branches>
 
 		<!-- sonar cloud link -->
-		<sonar.projectKey>etienne-turin_shopizerTEST</sonar.projectKey>
+		<sonar.projectKey>etienne-turin_shopizerTEST-${project.groupId}:${project.artifactId}</sonar.projectKey>
 		<sonar.organization>etienne-turin</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
