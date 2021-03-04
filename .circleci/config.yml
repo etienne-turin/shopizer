@@ -31,6 +31,7 @@ jobs:
           name: Run shell script
           command: |
             chmod +x ./mvnw
+            echo "ls -a"
             set -x
             /home/shopizer/tools/shopizer.sh tests
       - persist_to_workspace:
