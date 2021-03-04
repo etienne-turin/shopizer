@@ -12,7 +12,7 @@ orbs:
 executors:
   shopizer-ci:
     docker:
-      - image: etienneturin/shopizertest:latest
+      - image: etienneturin/citest:latest
         auth:
           username: etienneturin
           password: fefcf6bf-b1be-4e9c-906b-2d709a1bc174
@@ -31,7 +31,6 @@ jobs:
           name: Run shell script
           command: |
             chmod +x ./mvnw
-            ls -a
             set -x
             /home/shopizer/tools/shopizer.sh tests
       - persist_to_workspace:
