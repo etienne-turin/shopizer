@@ -1,7 +1,7 @@
 # Java Maven CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
-# test push re re re ticket
+#
 
 
 version: 2.1
@@ -35,7 +35,7 @@ jobs:
     executor: shopizer-ci
     steps:
       - checkout
-      - run: echo "shopizer build and test (1)"
+      - run: echo "shopizer build and test"
       - run:
           name: Run shell script
           command: |
@@ -46,14 +46,7 @@ jobs:
           root: .
           paths:
             - sm-shop/*
-      #- run:
-      #    name: Install Docker client
-      #    command: apk add docker-cli
-      #- run: |
-      #    ls -al
-      #    cd sm-shop
-      #    docker build . -t shopizerecomm/shopizer:latest
-      #    docker build . -t shopizerecomm/shopizer:latest
+
   deploy:
     machine: true
     steps:
@@ -70,11 +63,6 @@ jobs:
       - run: |
           docker push etienneturin/shopizertest:latest
 
-      #- run: |
-      #    docker login -u shopizerecomm  -p $DOCKERHUB_PASSWORD  | ls -al | echo "build docker" | cd sm-shop | ls -al | docker build . -t shopizerecomm/shopizer:latest
-
-      # deploy the image
-      #- run: docker push shopizerecomm/shopizer:latest
 
 # Orchestrate our job run sequence
 workflows:
@@ -88,24 +76,3 @@ workflows:
       - deploy:
           requires:
             - build
-
-      #jobs:
-      #  build:
-      #    steps:
-      #      - checkout
-      #      - run: echo "this is the build job"
-      #  test:
-      #executor: shopizer-ci
-      #    steps:
-      #      - checkout
-      #      - run: echo "this is the test job"
-      #- run: shopizer tests
-
-
-#workflows:
-#  build_and_test:
-#    jobs:
-#      - build
-#      - test:
-#          requires:
-#            - build
