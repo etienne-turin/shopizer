@@ -22,26 +22,18 @@ working_directory: /tmp
 
 # Define the jobs we want to run for this project
 jobs:
-  sonarBuild:
-    docker:
-      - image: 'circleci/openjdk:11-jdk'
-    steps:
-      - checkout
-      - run:
-          name: Analyze on SonarCloud
-          command: mvn verify sonar:sonar
 
   build:
     executor: shopizer-ci
     steps:
       - checkout
       - run: echo "shopizer build and test"
-      - run:
-          name: Run shell script
-          command: |
-            chmod +x ./mvnw
-            set -x
-            /home/shopizer/tools/shopizer.sh tests
+      #- run:
+      #    name: Run shell script
+      #    command: |
+      #      chmod +x ./mvnw
+      #      set -x
+      #      /home/shopizer/tools/shopizer.sh tests
       - persist_to_workspace:
           root: .
           paths:
@@ -68,10 +60,6 @@ jobs:
 workflows:
   builds_and_deploy:
     jobs:
-      - sonarBuild:
-          context: SonarCloud
-          requires:
-            - build
       - build
       - deploy:
           requires:
